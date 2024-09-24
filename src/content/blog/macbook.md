@@ -16,20 +16,20 @@ Elastic Search allows us to rapidly search through our data, scale our clusters 
 In the following code snippet, we created our elastic search client and then created our file path from where we ingest our documents. We also imported our pre-trained sentence transformer model. For this series, we will be utilizing pre-trained models for speed.
 
 
-from elasticsearch import Elasticsearch
-from elasticsearch.helpers import bulk
-from elasticsearch import helpers
-import numpy as np
-from random import getrandbits
-logging.basicCOnfig(filename="es.log", level=logging.INFO)
-import requests
+#from elasticsearch import Elasticsearch
+#from elasticsearch.helpers import bulk
+#from elasticsearch import helpers
+#import numpy as np
+#from random import getrandbits
+#logging.basicCOnfig(filename="es.log", level=logging.INFO)
+#import requests
 
 
-import os
-import json
-import time
-from datetime import datetime
-from pprint import pprint
+#import os
+#import json
+#import time
+#from datetime import datetime
+#from pprint import pprint
 
 
 es = Elasticsearch("http://localhost:9200")
