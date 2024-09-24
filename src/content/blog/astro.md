@@ -1,5 +1,5 @@
 ---
-title: 'A Comparative study of reccurent neural networkss, support vector machines and knn models'
+title: 'A Comparative study of various classification models'
 description: 'I analyzed the performance of several different models for a simple heart disease classification problem '
 pubDate: 'Jul 02 2022'
 heroImage: '../../assets/images/placeholder-about.jpg'
