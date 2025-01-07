@@ -1,6 +1,15 @@
- SEP Deployment using Docker-Compose: Part 1 
-Pre Requisites for this Article:
+---
+title: 'SEP Deployment using Docker-Compose: Part 1'
+description: 'In this Project, I worked on setting up using Docker compose to configure a containerized version of Starburst Enterprise'
+pubDate: 'January 6 2024'
+heroImage: '../../assets/images/placeholder-hero.jpg'
+category: 'Data Infrastructure'
+tags: []
+---
 
+
+SEP Deployment using Docker-Compose: Part 1 
+Pre Requisites for this Article:
 While this tutorial is intended for beginner to intermediate technical audiences there are some prerequisites. We will need docker and docker desktop installed on your machine. Once we get that done we need to chat about docker containers and docker compose.yaml scripts. 
 
 Containerization:
