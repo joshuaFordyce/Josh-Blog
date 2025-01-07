@@ -1,4 +1,4 @@
-‭ SEP Deployment using Docker-Compose: Part 1 
+ SEP Deployment using Docker-Compose: Part 1 
 Pre Requisites for this Article:
 
 While this tutorial is intended for beginner to intermediate technical audiences there are some prerequisites. We will need docker and docker desktop installed on your machine. Once we get that done we need to chat about docker containers and docker compose.yaml scripts. 
