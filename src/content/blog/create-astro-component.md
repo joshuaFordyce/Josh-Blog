@@ -1,7 +1,7 @@
 ---
 title: 'OCI Terraform/OKE project'
-description: 'In this Project I worked on setting up automation for Oracle managed kubernetes clusters using terraform'
-pubDate: 'Jul 02 2022'
+description: 'In this Project, I worked on setting up automation for Oracle managed Kubernetes clusters using terraform'
+pubDate: 'December 18 2024'
 heroImage: '../../assets/images/placeholder-hero.jpg'
 category: 'Cloud Infrastructure'
 tags: []
@@ -12,7 +12,7 @@ Today, we are going to learn how to automate the deployment of OCI’s OKE which
 
 Kubernetes brief
 
-Kubernetes is a powerful platform that helps to manage and orchestrate containerized applications by providing APIs that allow the engineer to deploy, maintain, and scale publications. Containerized application architecture allows engineering teams to develop and deploy their applications by separating them into scalable modules and helps them work in smaller, more agile teams.  Before containers,s engineers typically deployed one application on one virtual machine because of the difficulties associated with different dependency versions. Containers allow us to isolate the dependencies of an application from other containers running on the same environment. This allows us to run several different applications on one virtual machine instead of  The fundamental architecture of a Kubernetes Cluster is very complex so we will focus on simplifying it. Essentially we have worker nodes and master node. The master node is also known as the control plane that facilitates the worker node by scheduling, monitoring, and starting/restarting the nodes/pods.
+Kubernetes is a powerful platform that helps to manage and orchestrate containerized applications by providing APIs that allow the engineer to deploy, maintain, and scale publications. Containerized application architecture allows engineering teams to develop and deploy their applications by separating them into scalable modules and helps them work in smaller, more agile teams.  Before containers, engineers typically deployed one application on one virtual machine because of the difficulties associated with different dependency versions. Containers allow us to isolate the dependencies of an application from other containers running in the same environment. This allows us to run several different applications on one virtual machine instead of  The fundamental architecture of a Kubernetes Cluster is very complex so we will focus on simplifying it. Essentially we have worker nodes and master nodes. The master node is also known as the control plane that facilitates the worker node by scheduling, monitoring, and starting/restarting the nodes/pods.
 
 
 
@@ -31,26 +31,31 @@ Terraform Init initializes the working directory, initializes the downloads and 
 
 
 Getting our hands dirty
-Now we can begin the actual development. First we need to prepare by installing Terraform, create RSA keys, Add List Policies and Gather the required information:
+Now we can begin the actual development. First, we need to prepare by installing Terraform, creating RSA keys, Add List Policies, and Gather the required information:
 
-We can check the terraform version utilizing the terraform -v then we create a directory for our terraform scripts. Next we have to generate RSA keys using the openssl rsa and openssl genrsa commands. Finally, we need authentication information to authenticate the terraform scripts. This information consists of the region , Tenancy OCID, User OCID and Fingerprint.
+We can check the terraform version utilizing the terraform -v then we create a directory for our terraform scripts. Next, we have to generate RSA keys using the openssl rsa and openssl genrsa commands. Finally, we need authentication information to authenticate the terraform scripts. This information consists of the region, Tenancy OCID, User OCID, and Fingerprint.
 Finally,  we will focus on automating a simple OKE cluster in one region. Our Architecture will look like this 
 
-In this section we will create the provider-tf directory and create a file call ad.tf. The following code snippet shows how to do this
+In this section, we will create the provider-tf directory and create a file called ad.tf. The following code snippet shows how to do this
+```
 Mkdir provider-tf 
 cd provider-tf
 Touch ad.tf
+```
 
-
-The ad.tf script will allow us to grab the availability domains from our current compartment. Availability domains are a set of data centers within an OCI region . A region can have multiple ADs with separate support resources. The domains are typically connected via a low latency network to allow for fast inter-region data transmission. 
+The ad.tf script will allow us to grab the availability domains from our current compartment. Availability domains are a set of data centers within an OCI region. A region can have multiple ADs with separate support resources. The domains are typically connected via a low-latency network to allow for fast inter-region data transmission. 
 The following code snippet has the actual terraform code to grab a list of  availability domains from our compartments.
+
+```
 data "oci_identity_availability_domains" "ads" {
 	compartment_id = "ocid1.compartment.oc1..aaaaaaaaz362qxneyuw7vialsglurkwrr47aa55dmqctpb42tlcppcto5y6q"
 }
-
+```
 
 Now we can start with creating the VCN that our OKE cluster is going to reside in.
 A VCN is a private network that you set up in Oracle data centers. It has subnets, firewall rules, internet gateway route rules, local peering gateways, route tables and more. 
+
+```
 
 #source from https://registry.terraform.io/modules/oracle-terraform-modules/vcn/oci/
 module "vcn"{
@@ -75,11 +80,10 @@ module "vcn"{
   create_nat_gateway = true
   create_service_gateway = true
 } 
+```
+Here we set up a Private Security List. A security list is a virtual firewall with ingress and egress rules that allow specific network traffic in and out. 
 
-
-
-
-Here we set up a Private Security List. A security list is a virtual firewall with ingress and egress rules that allows specific network traffic in and out. 
+```
 #source from https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_security_list
 
 resource "oci_core_security_list" "private-security-list"{
@@ -136,8 +140,11 @@ ingress_security_rules {
 
 
 }
+```
 
 Here we set up a private subnet. A subnet is a logical division of a virtual cloud network and consists of a range of addresses. This range of addresses is determined by CIDR blocks.
+
+```
 #source from https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_subnet
 
 resource "oci_core_subnet" "vcn-private-subnet"{
@@ -151,12 +158,11 @@ resource "oci_core_subnet" "vcn-private-subnet"{
 	security_list_ids = [oci_core_security_list.private-security-list.id]
 	display_name = "private-subnet"
 }
+```
 
-
-
-Here we setup a public security list
+In the following snippet, we create a public-security-list
 #Source from https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_security_list
-
+```
 resource "oci_core_security_list" "public-security-list"{
 
 # Required
@@ -213,13 +219,14 @@ ingress_security_rules {
       } 
     }
 }
+```
 
 
-
-Here we set up a public subnet
+In the the below snippet, we create a public subnet.
 
 #source from https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_subnet
 
+```
 resource "oci_core_subnet" "vcn-public-subnet"{
 	
 	#Required
@@ -236,10 +243,11 @@ resource "oci_core_subnet" "vcn-public-subnet"{
 
 
 }
+```
 
 
-
-Now we can setup our cluster and we can name it Practice Cluster.
+Now we can create our cluster and we can name it Practice Cluster.
+```
 resource "oci_containerengine_cluster" "oke-cluster" {
 	# Required
 	compartment_id = "ocid1.compartment.oc1..aaaaaaaaz362qxneyuw7vialsglurkwrr47aa55dmqctpb42tlcppcto5y6q"
@@ -261,14 +269,13 @@ resource "oci_containerengine_cluster" "oke-cluster" {
 
 	}
 }
-
+```
 
 
 Now we can begin to set up our node-pool. A node-pool is a group of nodes within a cluster that all have the same config.
+Now that we have our node pool created, let's write the terraform to create our actual cluster.
 
-
-
-Now that we have our node pool setup lets set up our actual cluster
+```
 #source from https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/containerengine_cluster
 
 resource "oci_containerengine_cluster" "oke-cluster" {
@@ -292,10 +299,12 @@ resource "oci_containerengine_cluster" "oke-cluster" {
 
 	}
 }
+```
 
 
 Here we set up our outputs.tf which would allow us to print details about our resources and export the details to variables which we can then use in further terraform scripts
 #Output the "list" of all availability domains.
+```
 output "all-availability-domains-in-your-tenancy" {
 	value = data.oci_identity_availability_domains.ads.availability_domains
 }
@@ -349,27 +358,30 @@ output "public-subnet-name" {
 output "public-subnet-OCID" {
 	value = oci_core_subnet.vcn-public-subnet.id
 }
+```
 
-
-Now that we’ve written our terraform scripts we can start running the commands to provision our infrastructure. To provision the cluster, we have to initialize the modules, provider plugins and the backend that we defined in our scripts. Run the following command:
-
+Now that we’ve written our terraform scripts we can start running the commands to provision our infrastructure. To provision the cluster, we have to initialize the modules, provider plugins, and the backend that we defined in our scripts. Run the following command:
+```
 terraform init
+```
 
 
-
-Once we’ve ran the init command we can check the configuration file using the following command
-
+Once we’ve run the init command we can check the configuration file using the following command.
+```
 terraform validate
+```
 
 
-
-We can then run the command to see our plan of the resources we want to create 
+We can then run the command to see our plan for the resources we want to create.
+```
 terraform plan
+```
 
 
-And finally we provision the resources using the terraform apply command
-
+Finally, we provision the resources using the terraform apply command.
+```
 terraform apply
+```
 
 
-In this article we focused on developing terraform scripts that allow us to provision OKE clusters on oracle cloud infrastructure.  However, this is a very basic architecture that doesn’t ensure a highly available and highly resilient system. In the next edition of this series, we will focus on adding redundancy and reliability to our cloud architecture.
+In this article, we focused on developing terraform scripts that allow us to provision OKE clusters on Oracle cloud infrastructure.  However, this is a very basic architecture that doesn’t ensure a highly available and highly resilient system. In the next edition of this series, we will focus on adding redundancy and reliability to our cloud architecture.
