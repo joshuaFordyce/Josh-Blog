@@ -1,7 +1,7 @@
 ---
 title: 'SEP Deployment using Docker-Compose: Part 1'
 description: 'In this article, we work on configuring a Containerized version of Starburst Enterprise using Docker-Compose and Docker '
-pubDate: 'January 6th 2025'
+pubDate: 'January 06 2025'
 category: 'Data Engineering and Data Infrastructure'
 heroImage: '../../assets/images/placeholder-hero.jpg'
 tags: ['ML']
