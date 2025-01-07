@@ -15,7 +15,7 @@ Elastic Search allows us to rapidly search through our data, scale our clusters 
 
 In the following code snippet, we created our elastic search client and then created our file path from where we ingest our documents. We also imported our pre-trained sentence transformer model. For this series, we will be utilizing pre-trained models for speed.
 
-
+```
 #from elasticsearch import Elasticsearch
 #from elasticsearch.helpers import bulk
 #from elasticsearch import helpers
@@ -40,23 +40,26 @@ path = '/publish/English/Documents/Json/'
 rootpath = '/publish/English/Documents/Json/'
 jsonfilename = 'collector_kodicare_70.txt.json'
 directory = path
-
+```
 
 
 
 We then created and initialized our Vector_Search class with our sentence transformer model
 class Vector_Search:
+```
 def __init__(self):
 
      # this is a sentence-transformer model that maps sentences & paragraphs to a 384       dimensional dense vector space and can be used for tasks like clustering or semantic search
      self.Minimodel = SentenceTransformer('all-MiniLM-L6-v2')
      self.es = es
 
+```
 
 
 
+Here we created dense vectors and sparse vector indexes to store our documents and the embeddings we create for them.
 
-Here we created dense vectors and sparse vectors indexes to store our documents and the embeddings we create for them
+```
 
 def create_dense_index(self):
     self.es.indices.create(index='my_documents_dense', mappings={
@@ -66,13 +69,15 @@ def create_dense_index(self):
                                       }
                             }
                       })
+```
 
 
 
 
 
+This method allows us to Ingest our documents into the indexes we’ve already created.
 
-This method allows us to Ingest our documents into the indexes we’ve already created
+```
 def Ingesting(self,documents):
     cwd = os.getcwd()
     for filename in os.listdir(cwd+documents):
@@ -93,10 +98,13 @@ def Ingesting(self,documents):
 
 
    return self.es.bulk(operations = operations)
+```
 
 
 
-Here we pass in our queries that we will be vectorizing and using to search our index for relevant documents
+In the below code snippet, we pass in our queries that we will be vectorizing and using to search our index for relevant documents.
+
+```
 def get_query_list(queries):
     q = {}
     cwd = os.getcwd()
@@ -108,13 +116,17 @@ def get_query_list(queries):
                     q[key]=value
     return q
 
+```
+In the below snippet, we utilized our SentenceTransformed to generate our embeddings
 
-Here we utilized our SentenceTransformed to generate our embeddings
+```
 def get_sentenceTransfomrer_embedding(self,text):
     return self.model.encode(text)
 
-
+```
 This method is where we make our actual runs utilizing the queries that were passed in.
+
+```
 def make_run(self):
     listOfResults = []
     q = self.get_query_list(queries)
@@ -129,20 +141,20 @@ def make_run(self):
            },
                 size = 10
          )
+```
 
 
 
 
+In the below code snippet, we define a Python function to allow us to show the results of the vector search 
 
-
-This method allows us to show our results 
-
+```
 def show_results(results):
     for result in results:
         print(f'{result["fields"]["title"]}\nScore: {result["_score"]}\n')
 
 
+```
 
-
-In this article we developed an information retrieval system built on top of elasticsearch and then ran k nearest neighbors against the documents we’ve ingested into our database, ranked documents and returned relevant documents. In the following articles of this series we will focus on different methods to generate embeddings and return relevant documents. We will then show how to compare the temporal performance of these embeddings utilizing temporally distant data.
+In this article, we developed an information retrieval system built on top of elastic search and then ran k-nearest neighbors against the documents we’ve ingested into our database, ranked documents, and returned relevant documents. In the following articles of this series, we will focus on different methods to generate embeddings and return relevant documents. We will then show how to compare the temporal performance of these embeddings utilizing temporally distant data.
 
