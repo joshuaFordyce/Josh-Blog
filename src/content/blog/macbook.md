@@ -1,7 +1,7 @@
 ---
 title: 'Temporally Persistent Information Retrieval System'
 description: 'Designing a temporally persistent '
-pubDate: 'Jul 02 2022'
+pubDate: 'November 1 2024'
 category: 'Data engineering and Data Infrastructure'
 heroImage: '../../assets/images/placeholder-hero.jpg'
 tags: ['ML']
