@@ -141,4 +141,5 @@ services:
 
 
 
-Now that we have this working you should be able to run “docker-compose up -d” which should get your application up and running. You should be able to navigate to the port Starburst is running on.
+Now that we have this working, you should be able to run “docker-compose up—d,” which should get your application up and running. You should also be able to navigate to the port Starburst is running on. If you have any issues getting your code to run, please post questions in the comments or refer to the GitHub repository using the link below.
+https://github.com/joshuaFordyce/DockerTrinoTutorial
