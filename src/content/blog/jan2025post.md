@@ -14,7 +14,7 @@ Pre Requisites for this Article:
 While this tutorial is intended for beginner to intermediate technical audiences there are some prerequisites. We will need docker and docker desktop installed on your machine. Once we get that done we need to chat about docker containers and docker compose.yaml scripts. 
 
 Containerization:
-The process of containerization is simply packaging your code and its dependencies into a logically isolated box. While there are different types of containers, docker containers are by far the most popular so we’ll focus on docker. The way docker works is by using three core steps. The first step is building what's called a Docker file. A docker file is a logical blueprint with instructions on how to package up the code and dependencies needed to run your application. The next step is building the docker image with the dockerfile and you typically do that with the command “Docker build -t app”. The third step is running the docker image which turns it into an actual containerized version of your application running in a logically isolated box on your host computer.
+Containerization is a process consisting of packaging your code and its dependencies into a logically isolated box. While there are different types of containers, docker containers are by far the most popular so we’ll focus on docker. The way docker works is by using three fundamental steps. The first step is building what's called a Docker file. A docker file is a logical blueprint with instructions on how to package up the code and dependencies needed to run your application. The next step is building the docker image with the dockerfile and you typically do that with the command “Docker build -t app”. The third step is running the docker image which turns it into an actual containerized version of your application running in a logically isolated box on your host computer.
 
 Here is an example:
 ```
@@ -31,7 +31,7 @@ EXPOSE 3000
 
 
 Docker Compose:
-	Docker compose is a tool offered by Docker to allow applications to run using multiple containers. You can manage networks, volumes and services in a single yaml config file. The compose file is a yaml config file. The key commands for docker-compose are “docker-compose up” to start the services defined, “docker-compose down” for stopping the services, “docker-compose logs” grabs the output of your running containers, “docker-compose ps” is how you grab the services that you have running.
+	Docker-Compose is a tool offered by Docker to allow applications to run using multiple containers. With Docker-Compose, You're able to manage several different infrastructure components such as networks, volumes, and services in a single yaml config file. There are four key bash terminal commands for working with Dockerfiles. The first command is a“docker-compose up” to start the services defined in your dockerfile. The second command is  “docker-compose down”  which we use to stop the services once they're already running. The third command is “docker-compose logs <target-container-name> ” and it prints the logs of the target container. The fourth command is “docker-compose ps” and it allows us to print the services that you have running.
 
 Here is an example:
 ```
@@ -78,11 +78,11 @@ networks:
 This YAML config will spin up an application with 1 application service, 1 database service, 2 networks, 1 secret, and 1 persistence volume.
 
 Deploying SEP with Docker Compose
-Now that we have a general understanding of Docker and Docker-Compose, we can continue on with our deployment of Starburst enterprise. Let's have a quick chat about the architecture of a general SEP deployment
+Now that we have a general understanding of Docker and Docker-Compose, we can continue with our deployment of Starburst Enterprise. Let's have a quick chat about the architecture of a general SEP deployment
 
 As we said before, trino is a distributed SQL query engine. The Trino cluster has two different node types in a client-server architecture style. The coordinator node is the control server that processes queries from the outside client, parses and analyzes the queries, and performs the scheduling of tasks among worker nodes. The worker nodes are the servers that carry out the actual tasks of accessing data from the different data sources connected to the cluster and then processing this data. To scale Starburst enterprise horizontally you can add more workernode servers. You can also scale vertically by increasing the size of the worker nodes. To connect data sources to Trino, we use configurations called catalogs to configure connectors. 
 
-Now that we’ve gone through our basic prerequisites we can start building our SEP deployment. The first thing we need to do is create a new directory for our SEP deployment by running "mkdir starburst" and then navigating to the newly made directory using "cd starburst". Next, we need to generate a Starburst data license. Once we’ve generated our Starburst data license, then we can create a config.properties file by running "vi config.properties".
+Now that we’ve gone through our basic prerequisites we can start building our SEP deployment. The first thing we need to do is create a new directory for our SEP deployment by running the command "mkdir starburst". Next, we need to navigate to our newly made directory using the command "cd starburst". Next, we need to generate a Starburst data license by requesting a provisional license from Starburst. Once we’ve generated our Starburst data license, then we can create a config.properties file by running the command "vi config.properties".
 Here is an example of the config.properties file we need to create
 ```
 http-server.http.port=8080
@@ -94,9 +94,9 @@ insights.persistence-enabled=true
 insights.metrics-persistece-enabled=true" >~/Downloads/starburst/config.properties"
 
 ```
-This config properties file is what tells our starburst container to run the application 8080 and launch the insights tool which allows us to grab the metrics and store the cluster metrics in our postgresql database running on port 5432.
+This config properties file is what tells our Starburst container to run the application on port 8080. The config properties also tell our SEP deployment where to launch the insights tool. The Starburst insight tool allows us to export our cluster metrics and store the cluster metrics in our Postgresql database running on port 5432.
 
-Next we want to configure a postgresql.properties for the postgresql catalog. We can create a postgresql.properties file by running “vi postgresql.properties”.
+Next, we want to configure a postgresql.properties for the postgresql catalog. We can create a postgresql.properties file by running the command “vi postgresql.properties”.
 Here is an example of the postgresql.properties file we have to create.
 ```
 connector.name=postgresql
@@ -108,7 +108,7 @@ connection-password=trinoRocks15
 
 
 Now that we have our config file, our Starburst data license, and our catalog file created we can start working on our compose file. We can create compose.yaml by running “vi compose.yaml”.
-Here is an example of compose.yaml file we have to create
+Here is an example of compose.yaml file we have to create.
 ```
 services:
  postgres:
