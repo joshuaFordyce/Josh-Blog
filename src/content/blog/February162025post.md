@@ -1,7 +1,7 @@
 ---
 title: 'SEP Deployment using Docker-Compose: Part 2'
 description: 'In this article, we work on configuring connectors for Apache Iceberg, Minio, and Apache Hive to connect to Trino'
-pubDate: 'February 25 2025'
+pubDate: 'February 25, 2025'
 category: 'Data Engineering and Data Infrastructure'
 heroImage: '../../assets/images/placeholder-hero.jpg'
 tags: ['ML']
