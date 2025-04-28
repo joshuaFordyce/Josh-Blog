@@ -3,7 +3,7 @@ title: 'Helm: Your Kubernetes Package Manager - A Friendly Intro'
 description: 'In this article we take a gentle stroll in the land of Helm '
 pubDate: 'February 28 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/YSbR4.jpg'
+heroImage: '../../assets/images/3 - YSbR4.jpg'
 tags: ['ML']
 ---
 
