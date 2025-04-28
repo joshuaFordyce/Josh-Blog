@@ -2,7 +2,7 @@
 title: 'Userspace VS Kernelspace in Linux'
 description: 'In this article, we explored the concept of Userspace vs Kernelspace in linux '
 pubDate: 'April 27, 2025'
-category: 'Data Engineering and Data Infrastructure'
+category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/placeholder-hero.jpg'
 tags: ['ML']
 ---
