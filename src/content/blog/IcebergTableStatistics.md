@@ -3,7 +3,7 @@ title: 'Apache Iceberg table statistics'
 description: 'In this article, we dive deep into Iceberg table statistics'
 pubDate: 'February 28, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/placeholder-hero.jpg'
+heroImage: '../../assets/images/D2Mkv.jpg'
 tags: ['ML']
 ---
 
