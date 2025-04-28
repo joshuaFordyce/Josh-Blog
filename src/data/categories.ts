@@ -4,5 +4,4 @@ export const CATEGORIES = [
 	'Data Engineering and Data Infrastructure',
 	'DevOps and Cloud Infrastructure',
 	'Kubernetes',
-	'API Development'
 ] as const
