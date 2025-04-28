@@ -3,7 +3,7 @@ title: 'OCI Terraform/OKE project'
 description: 'In this Project, I worked on setting up automation for Oracle managed Kubernetes clusters using terraform'
 pubDate: 'December 18 2024'
 heroImage: '../../assets/images/te.jpg'
-category: 'Cloud Infrastructure'
+category: 'DevOps and Cloud Infrastructure'
 tags: []
 ---
 
