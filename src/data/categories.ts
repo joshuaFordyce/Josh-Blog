@@ -1,7 +1,8 @@
 // List of categories for blog posts
 export const CATEGORIES = [
-	'Machine Learning',
+	'Machine Learning Infrastructure',
 	'Data Engineering and Data Infrastructure',
-	'Cloud Infrastructure',
+	'DevOps and Cloud Infrastructure',
+	'Kubernetes'
 	'API Development',
 ] as const
