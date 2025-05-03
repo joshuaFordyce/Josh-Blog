@@ -8,7 +8,7 @@ tags: ['ML']
 ---
 
 Setting Up a Production CI/CD Pipeline with GitLab, Minikube, and AWS: Part 1 - Laying the Foundation
-Hey everyone! 👋 Welcome to the first installment of our new series where we'll be building a robust production CI/CD (Continuous Integration/Continuous Delivery) pipeline using the powerful combination of GitLab and Amazon Web Services (AWS). Over this series, we'll journey through setting up GitLab within a Docker container on an EC2 instance, creating our initial project, registering runners to execute our pipelines, and finally, crafting a tailored CI/CD workflow.
+Hey everyone! 👋 Welcome to the first installment of our new series, where we'll be building a robust production CI/CD (Continuous Integration/Continuous Delivery) pipeline using the powerful combination of GitLab and Amazon Web Services (AWS). Over this series, we'll journey through setting up GitLab within a Docker container on an EC2 instance, creating our initial project, registering runners to execute our pipelines, and finally, crafting a tailored CI/CD workflow.
 
 In this initial article, our focus will be on establishing the essential infrastructure on AWS. We'll then dive into the world of Kubernetes by installing Minikube and deploying GitLab as a Kubernetes pod on top of our trusty EC2 instance. So, buckle up, and let's get started!
 
@@ -73,67 +73,91 @@ Since Docker is the default container runtime for Minikube, we'll start by insta
 Steps to Install Docker:
 
 Connect to your EC2 instance via SSH using the private key you downloaded earlier:
+```
 Bash
 
 ssh -i /path/to/your/private_key.pem ubuntu@your_ec2_public_ip
+```
 Once connected, update the package lists:
+```
 Bash
 
 sudo apt update
+```
 Install the necessary prerequisite packages for apt:
+```
 Bash
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
 Add the GPG key for the official Docker repository:
+```
 Bash
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
 Add the Docker repository to your APT sources:
+```
 Bash
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 Run the update command again to refresh the package lists with the new Docker repository:
+```
 Bash
 
 sudo apt update
+```
 To verify that you can install from the Docker repository instead of the default Ubuntu repository, run:
+```
 Bash
 
 apt-cache policy docker-ce
-(It would be helpful here to include an example of the expected output to guide the reader.)
+```
 Finally, install Docker:
+```
 Bash
 
 sudo apt install docker-ce
+```
 Check that the Docker service is running:
+
+```
 Bash
 
 sudo systemctl status docker
-(Again, showing the expected output indicating an "active" status would be beneficial.)
+```
 Now that Docker is installed, we need a tool to interact with our Kubernetes cluster. We'll install the kubectl binary.
 
 Steps to Install Kubectl Binary with Curl:
 
 Download the kubectl binary using the following command:
+```
 Bash
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
 Make the kubectl binary executable:1
+```
 Bash
 
 sudo chmod +x kubectl
-  
+```
 1.
 github.com
 github.com
 Move the binary to a directory in your system's PATH so you can run it easily:
+```
 Bash
 
 sudo mv kubectl /usr/local/bin/kubectl
+```
 Verify the installation by checking the kubectl version:
+```
 Bash
 
 kubectl version --client
+```
 GitLab Kubernetes Deployment
 With Minikube running and kubectl ready, we can now move on to deploying GitLab within our Kubernetes cluster!
 
@@ -152,41 +176,50 @@ Now, let's get GitLab up and running on our Minikube cluster.
 The first thing we need to do is enable the Ingress addon in Minikube. An Ingress is a Kubernetes object that manages external access to services within our cluster, typically via HTTP and HTTPS. It allows us to configure routing rules to direct traffic to the correct GitLab service.
 
 Enable the Ingress addon:
+```
 Bash
 
 minikube addons enable ingress
+```
 Next, we'll use Helm, a package manager for Kubernetes, to deploy the GitLab chart.
 
 Clone the official GitLab chart repository:
+```
 Bash
 
 git clone https://gitlab.com/gitlab-org/charts/gitlab.git
 cd gitlab
+```
 Update the Helm dependencies:
+```
 Bash
 
 helm dependency update
+```
 Now, deploy GitLab using the Helm chart. We'll use a minimal configuration file suitable for Minikube:
+```
 Bash
 
 helm upgrade --install gitlab . \
   --timeout 600s \
   -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml
-(It would be helpful to explain what this command is doing, such as --install ensuring it installs if it doesn't exist, . pointing to the local chart directory, --timeout setting a maximum time for the operation, and -f specifying the configuration file.)
+```
 Check if your GitLab instance is up and running by listing the Kubernetes pods:
+```
 Bash
 
 kubectl get pods
-(Again, showing example output and explaining what to look for (e.g., all pods in a "Running" or "Completed" state) would be very helpful.)
+```
 To access your GitLab instance, you'll likely need to find the service URL exposed by the Ingress. You can usually do this with:
+```
 Bash
 
 minikube service gitlab-ingress-nginx-ingress-controller --url
-(Explain that this command retrieves the URL where GitLab is accessible.)
+```
 Open the obtained URL in your web browser and follow the initial setup instructions for GitLab. You'll likely be prompted to set an initial administrator password.
 Wrapping Up
 Wow! We've made significant progress today. We successfully set up our foundational AWS infrastructure, launched a virtual machine, and installed the necessary tools to run Minikube. Then, we leveraged Helm to deploy a running GitLab instance on our Minikube cluster.
 
 In the next article of this series, we'll dive into the exciting part of creating our project pipeline and registering runners to automate the deployment of our projects.
 
-Thanks for reading and following along on this journey! I look forward to seeing you in the next article where we'll take our CI/CD pipeline to the next level. Stay tuned! 👋
+Thanks for reading and following along on this journey! I look forward to seeing you in the next article, where we'll take our CI/CD pipeline to the next level. Stay tuned! 👋
