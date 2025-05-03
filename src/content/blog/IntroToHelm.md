@@ -19,6 +19,7 @@ Helm Repositories: These are where you store and share your Helm charts. They're
 Helm Releases: When you install a Helm chart, you create a "release." This is a running instance of your application on your Kubernetes cluster. Each time you install a chart, you get a new release.
 Let's Look at a Helm Chart Example
 Here's a simplified example of what a Helm chart might look like:
+```
 YAML
 apiVersion: v2
 name: my-app
@@ -39,7 +40,7 @@ values:
   service:
     type: LoadBalancer
     port: 80
-
+```
 templates:
   - deployment.yaml
   - service.yaml
@@ -49,30 +50,39 @@ Helm Repositories: Sharing Your Charts
 A Helm repository is simply an HTTP server that stores your charts. It has an index.yaml file that lists all the charts available. It's really useful for sharing charts within your team, or even publicly.
 Getting Started: Installing Helm
 Let's get Helm installed! We'll use the official installation script:
+```
 Bash
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+```
 And to make sure your Kubernetes cluster is running:
+```
 Bash
 kubectl cluster-info
+```
 Creating Your First Helm Chart
 Let's make a "hello-world" chart:
+```
 Bash
 helm create hello-world
+```
 This creates a basic chart structure:
+```
 hello-world/
   Chart.yaml
   values.yaml
   templates/
   charts/
   .helmignore
+```
 Customizing Your Deployment and Service
 Now, let's edit the deployment.yaml and service.yaml files in the templates directory. These files define your Kubernetes deployment and service.
 deployment.yaml manages your application's pods.
 service.yaml exposes your application to the network.
 Passing Values with values.yaml
 The values.yaml file lets you customize your chart. For example:
+```
 YAML
 replicaCount: 1
 image:
@@ -81,6 +91,7 @@ image:
 service:
   type: NodePort
   port: 80
+```
 Previewing Your Chart with helm template
 Before installing, you can preview your chart:
 Bash
@@ -88,22 +99,32 @@ helm template hello-world .
 This renders your templates with the values, so you can see what will be deployed.
 Installing Your Chart with helm install
 Now, let's install your chart:
+```
 Bash
 helm install my-release hello-world .
+```
 You can check your releases with:
+```
 Bash
 helm list
 Upgrading and Rolling Back
+```
 To update your chart:
+```
 Bash
 helm upgrade my-release hello-world .
+```
 And to rollback to a previous version:
+```
 Bash
 helm rollback my-release 1
 Uninstalling Your Chart
+```
 To remove your chart:
+```
 Bash
 helm uninstall my-release
+```
 Wrapping Up
 Helm makes Kubernetes deployments much simpler and more manageable. Hopefully, this introduction has given you a solid foundation to start using Helm in your own projects. Stay tuned for our Starburst Enterprise on Helm series!
 Thanks for reading!
