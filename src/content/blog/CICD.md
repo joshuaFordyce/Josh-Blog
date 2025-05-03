@@ -2,7 +2,7 @@
 title: 'Setting Up a Production CI/CD Pipeline with Gitlab, Minikube and AWS: Part 1 '
 description: 'In this article, setting up a CI/CD pipeline using a minikube cluster'
 pubDate: 'May 3, 2025'
-category: 'Devops and Cloud Infrastructure'
+category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/2 - FA6Yb.jpg'
 tags: ['ML']
 ---
