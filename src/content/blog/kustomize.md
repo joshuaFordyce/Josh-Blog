@@ -1,3 +1,13 @@
+---
+title: 'Optimizing Template-Free Kubernetes YAML Management with Kustomize'
+description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
+pubDate: 'July 01 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/bg.jpg'
+tags: ['ML']
+---
+
+
 Optimizing Template-Free Kubernetes YAML Management with Kustomize
 Managing Kubernetes YAML configuration files can be an incredibly complex task for DevOps engineers. This difficulty is often exacerbated when it comes to working with config files for different environments and use cases, leading to issues like YAML sprawl, configuration drift, and general management headaches. This is precisely where Kustomize steps in.
 
