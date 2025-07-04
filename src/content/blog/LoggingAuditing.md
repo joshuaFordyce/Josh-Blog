@@ -1,4 +1,13 @@
-How does Logging and audition in Starburst
+---
+title: 'Trino Troubleshooting: Logging and Auditing '
+description: 'In this article, I describe how Logging and Auditing work in Starburst'
+pubDate: 'August 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+How does Logging and auditing work in Starburst?
 
 Logging and auditioning provided visibility into changes, data access, and API interactions for security, compliance, troubleshooting and operational insights. 
 
