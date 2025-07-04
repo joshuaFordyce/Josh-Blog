@@ -1,3 +1,16 @@
+---
+title: 'Trino Troubleshooting: Deployment Upgrade Strategies '
+description: 'In this article, I describe deployment upgrade nuances in Starburst'
+pubDate: 'September 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
+
+
+
 Starburst Cluster Deployment Upgrade Strategies
 
 Starburst upgrading can be a complex tasks for deploying new versions or significant config changes especially in a production environment. Starburst recommends that Trino Infrastructure is upgraded using a blue-green deployment
