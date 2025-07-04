@@ -1,4 +1,15 @@
-Configuring Multiple Certificate Authorities for a Kubernetes Based Starburst Deployment:
+
+---
+title: 'Trino Troubleshooting: Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment '
+description: 'In this article, I describe how Logging and Auditing work in Trino'
+pubDate: 'October 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
+Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment:
 
 - Routing traffic from different client groups to a single Kubernetes service/cluster where each group requires trust from a distinct Certificate Authority can be a complex challenge. We discuss how to approach this from a networking and kubernetes perspective below.
 
