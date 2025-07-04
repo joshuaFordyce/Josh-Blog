@@ -1,3 +1,13 @@
+
+---
+title: 'Trino Troubleshooting: Runtime Adhoc Schema Inference '
+description: 'In this article, I describe how runtie schema inference works in Trino'
+pubDate: 'September 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 How to deal with runtime adhoc schema inference in Starburst/Trino
 
 True runtime adhoc schema inference is not inherently available for formats like parquet,ORC, JSON , or CSV in trino. The reason for this is that when creating tables from these file formats, it's necessary to explicitly declare the schema in the CREATE TABLE statement. THis means that the user must specify column names and types. 
@@ -9,7 +19,7 @@ The discover_schema procedure in Starburst is designed to address the challenges
 Workflow
 
 Procedure Call: To use the discover_schema, you initiate it with a SQL command like:
-
+```
 CALL hive.system.discover_schema(
     catalog => 'hive',               -- Target catalog
     schema => 'my_schema',           -- Target schema/database
@@ -17,6 +27,7 @@ CALL hive.system.discover_schema(
     location => 's3a://my-bucket/path/',  -- S3 location to analyze
     format => 'PARQUET'              -- Data file format (supports PARQUET, CSV, JSON, etc.)
 );
+```
 
 Return Value: The discover_schema procedure returns a CREATE TABLE Data Definition Language (DDL) statement, which contains inferred columns and types based on the scanned data files.
 Manual Execution Required: After receiving the DDL statement, users must manually execute it to register the table in the catalog. This step is critical for making the inferred schema available for querying.
