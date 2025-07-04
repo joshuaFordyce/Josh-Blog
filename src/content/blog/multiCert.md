@@ -1,6 +1,6 @@
 
 ---
-title: 'Trino Troubleshooting: Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment '
+title: 'Trino Troubleshooting: Configuring Multiple CA's for a Kubernetes Based Trino Deployment'
 description: 'In this article, I describe how Logging and Auditing work in Trino'
 pubDate: 'October 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
