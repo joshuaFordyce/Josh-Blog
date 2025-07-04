@@ -1,4 +1,3 @@
-
 ---
 title: 'Trino Troubleshooting: Configuring Multiple CA's for a Kubernetes Based Trino Deployment'
 description: 'In this article, I describe how Logging and Auditing work in Trino'
