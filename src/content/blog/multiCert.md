@@ -1,11 +1,12 @@
 ---
-title: 'Trino Troubleshooting: Configuring Multiple CA's for a Kubernetes Based Trino Deployment'
-description: 'In this article, I describe how Logging and Auditing work in Trino'
-pubDate: 'October 1, 2025'
+title: 'Optimizing Template-Free Kubernetes YAML Management with Kustomize'
+description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
+pubDate: 'July 01 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/bg.jpg'
 tags: ['ML']
 ---
+
 
 
 Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment:
