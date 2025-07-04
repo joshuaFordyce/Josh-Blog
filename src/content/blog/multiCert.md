@@ -1,7 +1,7 @@
 ---
-title: 'Optimizing Template-Free Kubernetes YAML Management with Kustomize'
-description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
-pubDate: 'July 01 2025'
+title: 'Trino Troubleshooting: Configuring Multiple CA for a Kubernetes Based Trino Deployment'
+description: 'In this article, we dicuss how to configure multiple CA's for a Trino Deployment'
+pubDate: 'October 01 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/bg.jpg'
 tags: ['ML']
