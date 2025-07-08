@@ -1,9 +1,9 @@
 ---
 title: 'Trino Troubleshooting: Deployment Upgrade Strategies '
 description: 'In this article, I describe deployment upgrade nuances in Starburst'
-pubDate: 'September 1, 2025'
+pubDate: 'October 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/a.jpg'
 tags: ['ML']
 ---
 
