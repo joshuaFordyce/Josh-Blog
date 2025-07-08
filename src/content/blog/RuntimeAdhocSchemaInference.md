@@ -3,7 +3,7 @@ title: 'Trino Troubleshooting: Runtime Adhoc Schema Inference '
 description: 'In this article, I describe how runtie schema inference works in Trino'
 pubDate: 'September 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/4.jpg'
 tags: ['ML']
 ---
 
