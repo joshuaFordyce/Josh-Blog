@@ -1,6 +1,6 @@
 ---
 title: 'Configuring Multiple CA's for a Trino Deployment'
-description: 'we discuss routing taffic from two distinct client groups on one trino cluster'
+description: 'Configure multiple CA's for a Trino Deployment'
 pubDate: 'November 01 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/c.jpg'
