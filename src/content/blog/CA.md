@@ -1,6 +1,6 @@
 ---
-title: 'Multiple CA'
-description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
+title: 'Multiple CA in Trino Deployment'
+description: 'Multiple CA in Trino Deployment'
 pubDate: 'July 01 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/bg.jpg'
