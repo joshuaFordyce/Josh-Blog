@@ -1,9 +1,9 @@
 ---
-title: 'Optimizing Template-Free Kubernetes YAML Management with Kustomize'
-description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
-pubDate: 'July 01 2025'
+title: 'Configuring Multiple CA's for a Trino Deployment'
+description: 'we discuss routing taffic from two distinct client groups on one trino cluster'
+pubDate: 'November 01 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/bg.jpg'
+heroImage: '../../assets/images/c.jpg'
 tags: ['ML']
 ---
 
