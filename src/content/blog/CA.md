@@ -1,4 +1,11 @@
-
+---
+title: 'Optimizing Template-Free Kubernetes YAML Management with Kustomize'
+description: 'Kustomize allows for us to manage Kubernetes Yaml files easily'
+pubDate: 'July 01 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/bg.jpg'
+tags: ['ML']
+---
 
 
 Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment:
