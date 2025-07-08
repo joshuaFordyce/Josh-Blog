@@ -1,4 +1,3 @@
-
 ---
 title: 'Trino Troubleshooting: Runtime Adhoc Schema Inference '
 description: 'In this article, I describe how runtie schema inference works in Trino'
