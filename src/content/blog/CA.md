@@ -1,11 +1,4 @@
----
-title: 'Configuring Multiple CA's for a Trino Deployment'
-description: 'Configure multiple CA's for a Trino Deployment'
-pubDate: 'November 01 2025'
-category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/c.jpg'
-tags: ['ML']
----
+
 
 
 Configuring Multiple Certificate Authorities for a Kubernetes Based Trino Deployment:
