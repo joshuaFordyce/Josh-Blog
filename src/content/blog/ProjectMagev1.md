@@ -1,3 +1,16 @@
+---
+title: 'The complexity of Data Lakehouse Deployments on Kubernetes '
+description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
+pubDate: 'August 29, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
+
+
+
 The hidden complexity of Data Lakehouse Deployments on Kubernetes:
 
 Working with open source Trino can be a difficult task for customers that want to stay on open source and develop tooling using an open source data stack. Lets say a data engineer want’s to set up a data lakehouse made up of all open source tools. Lets imagine a setup where they’d use Trino as their query engine layer, postgres/Mongo/Oracle/Minio as their data sources, and hive as the metastore that stores their metadata. All of these are open source tools that come together to make a complex data stack that forms the foundation of a data infrastructure for important data reliant open source projects.
