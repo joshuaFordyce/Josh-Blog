@@ -1,3 +1,19 @@
+---
+title: 'Lets dig deep into Autoscaling'
+description: 'In this article, how native Autoscaling works in Kubernetes'
+pubDate: 'August 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
+
+
+
+
+
+
 Background information about HPA. 
 The HPA is a kubernetes API resource that will automatically scale the amount of pods in a Deployment, ReplicaSet or Statefulset based on resource utilization or custom metrics. The idea is that you should be able to scale you application to meet demand by maintaining an average utilization target across the Pods
 
