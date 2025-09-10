@@ -1,3 +1,12 @@
+---
+title: 'Phase One of the Database Sentinel'
+description: 'In this article, I describe how I went about implementing the first part of the Database Sentinel'
+pubDate: 'November 10, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 This article focuses on the overall Phase 1 of Sentinel. We'll talk about mastering the fundamentals of database reliability by builiding a portable test enviornment and performing essential manual diagnositics.
 Our goal is to establish a core knowledge base of bare-metal and system-level checks, which are the building blocks for our future automation.
 
