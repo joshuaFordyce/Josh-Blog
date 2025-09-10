@@ -1,4 +1,11 @@
-
+---
+title: 'Trino Troubleshooting: Logging and Auditing '
+description: 'In this article, I describe how Logging and Auditing work in Starburst'
+pubDate: 'August 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 
 The Operator's Report Card: Implementing Status Updates 
 The Status field is a communication channel between your operator and the user. It's the difference between a kubectl get command returning a blank status and a rich, informative one that tells the user the health and state of the cluster. A production-ready operator continuously updates the status of its custom resource to reflect the actual state of the cluster.
