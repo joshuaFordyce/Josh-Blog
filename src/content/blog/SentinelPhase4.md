@@ -3,7 +3,7 @@ title: 'Phase One of the Database Sentinel: Part 2'
 description: 'In this article, I continue describing how I went about implementing the first part of the Database Sentinel'
 pubDate: 'November 20, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/green-leaves-close-up-portrait.jpg'
 tags: ['ML']
 ---
 
