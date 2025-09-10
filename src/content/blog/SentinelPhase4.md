@@ -1,3 +1,12 @@
+---
+title: 'Phase One of the Database Sentinel: Part 2'
+description: 'In this article, I continue describing how I went about implementing the first part of the Database Sentinel'
+pubDate: 'November 20, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 From Dependency Hell to Docker Success: Part 2
 
 Continuing our Troubleshooting journey, we have more issues. We had key issues with installing Cassandra and Postgres and we've detailed it in the article.
