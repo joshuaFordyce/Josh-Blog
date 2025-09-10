@@ -1,6 +1,6 @@
 ---
 title: 'The Operator Report Card '
-description: 'In this article, I describe how Logging and Auditing work in Starburst'
+description: 'A communication channel between your operator and the user'
 pubDate: 'August 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/2 - FA6Yb.jpg'
