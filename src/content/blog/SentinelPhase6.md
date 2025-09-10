@@ -1,8 +1,14 @@
+---
+title: 'The Art of Passing JSON with jq: From Messy Data to Actionable Insights'
+description: 'In this article, I described how to use the jq cli tool to parse the raw JSON we received from the '
+pubDate: 'December 10, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 
 
-Article 2: The jq Tool
-The Art of Parsing JSON with jq
-From Messy Data to Actionable Insights
+The Art of Parsing JSON with jq: From Messy Data to Actionable Insights
 Making a direct API call to the Kubernetes Metrics Server is a powerful technique. However, the data returned is not a clean, human-readable table. Instead, it's a raw, structured JSON response—a format designed for machines, not for shell scripts. This presented our next challenge: how do we parse this messy data to extract the specific information we need?
 The solution is a powerful and elegant command-line tool called jq. It's often referred to as a "sed for JSON data," and it's an essential tool for any modern DevOps practitioner.
 The Problem with Raw JSON
