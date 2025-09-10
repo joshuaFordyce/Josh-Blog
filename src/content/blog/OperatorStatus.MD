@@ -1,5 +1,5 @@
 ---
-title: 'The Operator's Report Card '
+title: 'The Operator Report Card '
 description: 'In this article, I describe how Logging and Auditing work in Starburst'
 pubDate: 'August 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
