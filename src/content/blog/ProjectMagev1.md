@@ -3,7 +3,7 @@ title: 'The complexity of Data Lakehouse Deployments on Kubernetes '
 description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
 pubDate: 'August 29, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/4.jpg'
 tags: ['ML']
 ---
 
