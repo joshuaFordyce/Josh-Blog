@@ -1,4 +1,15 @@
+---
+title: 'Troubleshooting the Multi-DB Environment for testing the Sentinel Project'
+description: 'In this article, I describe how I went about deploying a test environment'
+pubDate: 'November 10, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
 From Dependency Hell to Docker Success: Troubleshooting the Sentinel Project's Multi-DB Environment
+
 Building robust, low-overhead monitoring tools for critical databases, as envisioned by the Sentinel Project, requires a solid foundation. Our initial goal was ambitious: a single Docker container housing PostgreSQL, MySQL, Redis, Cassandra, and a simulated KDB+ environment. What followed was a classic journey through the trenches of Dockerfile troubleshooting, filled with unexpected errors and crucial lessons. This article chronicles our challenges—from external package management woes to missing venv modules and phantom MongoDB removals—and the solutions that forged a resilient, reproducible test environment.
 
 The Initial Vision: A Dockerized Database Playground
