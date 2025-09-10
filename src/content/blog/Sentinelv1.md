@@ -1,4 +1,12 @@
-If you've ever had to troubleshoot a database performance issue, you know it can feel super stressful. Thats why I'v been buildingthe Database snetinel.
+---
+title: 'Introducing the Database Sentinel '
+description: 'In this article, I introduce the Database Sentinel'
+pubDate: 'November 1, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+If you've ever had to troubleshoot a database performance issue, you know it can feel super stressful. Thats why I'v been building the Database sentinel.
 It's a low-overhad monitorng and perofmrance analysis tool for PostgreSQL, MySQL, Cassandra and Redis serverse on Debin linux. I built it to be kind of an eys and ears that helps you proactively catch database problems.
 It's built with a hybrid agent architecture. THis means that we have a low latency Bash script ath runs quick checks on the OS, looking for things like high CPU Context switches ofr disk I/O latnecy. If anything looks off, that script calls a more detailed Python script. This Python agent then focuses on a more detailed analysis on the database itself. This checks for things like slow queries, lock contention, and replication lag. All of this is then packaged up and sento a Prometheus endpoint 
 The real power of the Sentinel however, is in't its automation. We're Using SaltStack to turn manual repetivie tasks into a signle command. The tool automatically deploys the agent to all your database servers. configures OS-level optimizations and even manages your databse clsuters.
