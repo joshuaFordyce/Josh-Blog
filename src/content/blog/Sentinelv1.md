@@ -3,7 +3,7 @@ title: 'Introducing the Database Sentinel '
 description: 'In this article, I introduce the Database Sentinel'
 pubDate: 'November 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/12 - BrBAT.jpg'
 tags: ['ML']
 ---
 If you've ever had to troubleshoot a database performance issue, you know it can feel super stressful. Thats why I'v been building the Database sentinel.
