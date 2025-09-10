@@ -15,6 +15,7 @@ It's built with a hybrid agent architecture. This means that we have a low laten
 
 
 SaltStack Integration:
+
 The real power of the Sentinel however, is in't its automation. We're Using SaltStack to turn manual repetivie tasks into a signle command. The tool automatically deploys the agent to all your database servers. configures OS-level optimizations and even manages your databse clsuters.
 
 
