@@ -1,6 +1,6 @@
 ---
 title: 'The Operator's Report Card'
-description: 'In this Article we talked about the communication channel between the operator and user'
+description: 'Discussing the communication channel between the operator and user'
 pubDate: 'October 15 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/bg.jpg'
