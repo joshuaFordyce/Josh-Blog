@@ -1,4 +1,11 @@
-
+---
+title: 'The Pod that knew too much'
+description: 'In this article, I describe how I went about pulling Kubernetes Metrics from inside a container'
+pubDate: 'November 30, 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 
 
 
