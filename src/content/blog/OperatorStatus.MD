@@ -1,7 +1,25 @@
-The Operator's Report Card: Implementing Status Updates 📝
+---
+title: 'The Operator's Report Card'
+description: 'In this Article we talked about the communication channel between the operator and user'
+pubDate: 'October 15 2025'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/bg.jpg'
+tags: ['ML']
+---
+
+
+
+
+
+
+
+
+
+
+The Operator's Report Card: Implementing Status Updates 
 The Status field is a communication channel between your operator and the user. It's the difference between a kubectl get command returning a blank status and a rich, informative one that tells the user the health and state of the cluster. A production-ready operator continuously updates the status of its custom resource to reflect the actual state of the cluster.
 
-1. The Core Concepts: Spec vs. Status 🧠
+1. The Core Concepts: Spec vs. Status 
 The core of this concept is the distinction between a resource's desired state and its observed state.
 Spec (The Desired State): This is the blueprint for your cluster. It's what the user defines in the TrinoCluster manifest. It contains all the fields that tell your operator what to do.
 Status (The Observed State): This is the report card. It's what your operator sees in the cluster after it's finished reconciling. It tells the user if the blueprint has been successfully implemented.
