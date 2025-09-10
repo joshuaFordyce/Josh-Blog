@@ -3,7 +3,7 @@ title: 'Troubleshooting the Multi-DB Environment for testing the Sentinel Projec
 description: 'In this article, I describe how I went about deploying a test environment'
 pubDate: 'November 10, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/c.jpg'
 tags: ['ML']
 ---
 
