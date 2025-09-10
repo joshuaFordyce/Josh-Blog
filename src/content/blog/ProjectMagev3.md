@@ -3,7 +3,7 @@ title: 'Beyond the Tutorial: The Real-World Debugging Challenges '
 description: 'A practical guide of real world errors that came with deploying my first Operator'
 pubDate: 'September 15, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/b.jpg'
 tags: ['ML']
 ---
 
