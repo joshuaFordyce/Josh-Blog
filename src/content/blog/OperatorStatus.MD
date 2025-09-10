@@ -1,7 +1,7 @@
 ---
 title: 'The Operator Report Card '
 description: 'A communication channel between your operator and the user'
-pubDate: 'August 1, 2025'
+pubDate: 'October 1, 2025'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/2 - FA6Yb.jpg'
 tags: ['ML']
