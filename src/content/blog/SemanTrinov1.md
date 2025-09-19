@@ -1,7 +1,7 @@
 ---
 title: 'SemanTrino: RAG for Data '
 description: 'In this article, we introduce the SemanTrino system'
-pubDate: 'April 28, 2025'
+pubDate: 'September 28, 2025'
 category: 'Data Engineering and Data Infrastructure'
 heroImage: '../../assets/images/2 - FA6Yb.jpg'
 tags: ['ML']
