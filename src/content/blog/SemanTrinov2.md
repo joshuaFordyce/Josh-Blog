@@ -1,3 +1,12 @@
+---
+title: 'SemanTrino: Spotlighting the VectorTrino '
+description: 'In this article, we discussed the VectorTrino microservice'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 My last article introduced the overall RAG pipeline; now, I’ll dive into the heart of the system: the VectorTrino microservice. This is where the magic happens, turning raw data and metadata into a searchable knowledge base.
 
 The VectorTrino Microservice: The Architect's View 
