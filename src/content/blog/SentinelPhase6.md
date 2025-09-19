@@ -3,7 +3,7 @@ title: 'The Art of Passing JSON with jq: From Messy Data to Actionable Insights'
 description: 'In this article, I described how to use the jq cli tool to parse the raw JSON we received from the '
 pubDate: 'December 10, 2025'
 category: 'DevOps and Cloud Infrastructure'
-heroImage: '../../assets/images/ventura.jpg'
+heroImage: '../../assets/images/ventura.jpeg'
 tags: ['ML']
 ---
 
