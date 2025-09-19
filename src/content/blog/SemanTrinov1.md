@@ -1,3 +1,13 @@
+---
+title: 'SemanTrino: RAG for Data '
+description: 'In this article, we introduce the SemanTrino system'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
 Lately I'v been very interested in building applied AI systems. My journey is about more than just writing code; it's about solving real-world, high-stakes problems for clients. That's why I'm building Semantrino, an open-source project designed to tackle a common and frustrating issue for data analysts and engineers: the inability to easily discover and understand data within a large-scale data lake.
 
 The Problem: A Data Lake You Can't Talk To 
