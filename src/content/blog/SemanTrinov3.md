@@ -1,3 +1,13 @@
+---
+title: 'SemanTrino: A harrowing troublshooting  journey'
+description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+
 My troubleshooting journey began with a fundamental debugging puzzle, a TypeError that wasn't about my code, but about its contract with the framework.
 
 Confronting Abstract Classes 
