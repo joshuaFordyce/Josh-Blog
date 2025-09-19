@@ -1,7 +1,7 @@
 ---
 title: 'SemanTrino: A harrowing troublshooting  journey'
 description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
-pubDate: 'April 28, 2025'
+pubDate: 'November 28, 2025'
 category: 'Data Engineering and Data Infrastructure'
 heroImage: '../../assets/images/2 - FA6Yb.jpg'
 tags: ['ML']
