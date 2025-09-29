@@ -19,5 +19,5 @@ SaltStack Integration:
 - The real power of the Sentinel however, is in't its automation. We're Using SaltStack to turn manual repetivie tasks into a signle command. The tool automatically deploys the agent to all your database servers. configures OS-level optimizations and even manages your databse clsuters.
 
 
-This means that you're able to spend less time on tedius manual work and more time on the fun stuff, like building new features. The agent can even be configured to automatically pull the EXPLAIN ANALYZE plans for sloq ueries. I built this project to  be an example of how automation can solve real-world problems.
+This means that you're able to spend less time on tedius manual work and more time on the fun stuff, like building new features. The agent can even be configured to automatically pull the EXPLAIN ANALYZE plans for slow queries. I built this project to  be an example of how automation can solve real-world problems.
 Its a strategic solution that helps you move from being a reactive troubleshooter to a proactive platform engineer.
