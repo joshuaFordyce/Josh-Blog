@@ -33,12 +33,12 @@ The Solution:
 
 The recommended fix (and Pythonic best practice) is to use a virtual environment (venv). This creates an isolated Python installation within our container, ensuring our project's dependencies don't interfere with the system's Python. Our Dockerfile was updated to:
 Dockerfile
-# Create a virtual environment
-RUN python3 -m venv /opt/venv
-# Install packages into the venv
-RUN /opt/venv/bin/pip install cassandra-driver
-# Make the venv's Python accessible by default
-ENV PATH="/opt/venv/bin:$PATH"
+- Create a virtual environment
+-        RUN python3 -m venv /opt/venv
+- install packages into the venv
+-        RUN /opt/venv/bin/pip install cassandra-driver
+- Make the venv's Python accessible by default
+-        ENV PATH="/opt/venv/bin:$PATH"
 
 Challenge 2: 
 
@@ -52,12 +52,12 @@ This highlighted a common pitfall with minimal Linux installations: core Python 
 The Solution: Installing python3-venv
 The error message was perfectly prescriptive. We added an apt-get install command for python3-venv before attempting to create the virtual environment:
 Dockerfile
-# First, update the package list and install the venv package
-RUN apt-get update && apt-get install -y python3-venv
+- First, update the package list and install the venv package
+-     RUN apt-get update && apt-get install -y python3-venv
 
-# Now, create a virtual environment
-RUN python3 -m venv /opt/venv
-# ... rest of the venv installation ...
+- Now, create a virtual environment
+-     RUN python3 -m venv /opt/venv
+
 This ensured that the venv module and ensurepip were present, allowing the virtual environment to be created successfully.
 
 Challenge 3: 
@@ -67,11 +67,10 @@ Challenge 3:
 During a build, a peculiar error surfaced: E: Unable to locate package mongodb-org. This was perplexing, as MongoDB was neither being installed nor was it a core component of our multi-database setup.
 Upon reviewing the Dockerfile, we found a block of code intended to remove MongoDB:
 Dockerfile
-# Remove MongoDB's files and dependencies
-RUN rm -f /etc/apt/sources.list.d/mongodb-org-7.0.list \
-    # ... more removal commands ...
-    && apt-get remove -y mongodb-org \
-    # ...
+- Remove MongoDB's files and dependencies
+-     RUN rm -f /etc/apt/sources.list.d/mongodb-org-7.0.list \
+-     RUN apt-get remove -y mongodb-org \
+    
 The Solution: 
 
 remove the entire block. This code was likely a leftover from a previous, different Dockerfile or a copy-paste error. It was attempting to clean up a package that was never installed, causing apt to fail when it couldn't find mongodb-org. Eliminating this redundant section streamlined our Dockerfile and resolved the build error.
