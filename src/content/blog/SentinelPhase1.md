@@ -11,7 +11,7 @@ This article focuses on the overall Phase 1 of Sentinel. We'll talk about master
 Our goal is to establish a core knowledge base of bare-metal and system-level checks, which are the building blocks for our future automation.
 
 
-Before we can monitor a database, we need to have one to moinitor. In this phase we're not just going to set up one but a diverse nvironment with PostgreSQL, MYSQL, REDIS, and Cassandra. 
+Before we can monitor a database, we need to have one to moinitor. In this phase we're not just going to set up one but a diverse environment with PostgreSQL, MYSQL, REDIS, and Cassandra. 
 Instead of manual installations on a vm, it's easier for  Dockerfile to create a reproducible, portable and low-overhead environment.
 This Dockerfile will orchestrate the setup. It will start from a base Linux Image and then run a series of commands to install each database and its dependencies.
 It will also expose the necessary ports for each service and include a startup script to ensure all services are ready.
