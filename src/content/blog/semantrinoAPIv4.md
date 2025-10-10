@@ -1,3 +1,12 @@
+---
+title: 'Agentic RAG for Complex Reasoning & Cost Control '
+description: 'In this article, we explored adding innovative features to the semantrino API'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 Agentic RAG for Complex Reasoning & Cost Control
 
 This article details how we'll add innovative features to the SemanTrino API. We'll focus on using autonomous agents and intelligent caching to solve multi-step problems efficiently and reduce API costs.
