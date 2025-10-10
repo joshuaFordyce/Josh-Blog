@@ -1,7 +1,14 @@
-
+---
+title: 'Data-to-vector ETL '
+description: 'In this article, we explored a specialized ETL pipelien for a RAG system '
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 Data-to-Vector ETL
 
-The vectorTirno code implements a specialized ETL pipeline that focuses on preping entepris data for a Retrieval-Augmented Generations system
+The vectorTirno code implements a specialized ETL pipeline that focuses on preping enteprise data for a Retrieval-Augmented Generations system
 - Extract:
     - Data and metadata are extracted from the Trino distributed query engine using the trinoConnect and TrinoMetadataRetriever classes
 - Transform: 
