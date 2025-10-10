@@ -1,5 +1,12 @@
-
-Part1: The Asynchronous SQL Gateway: Concurrency and the API Contract
+---
+title: 'Asynchronous SQL Gateway: Concurrency and the API Contract'
+description: 'In this article, we explored concurrency and the API Contract in the Semantrino API'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+The Asynchronous SQL Gateway: Concurrency and the API Contract
 
 Async vs. Blocking: The MLOps Rationale
 
