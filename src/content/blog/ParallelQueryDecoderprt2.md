@@ -1,3 +1,12 @@
+---
+title: 'Data Warehouses: Intro to Partitioning '
+description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
 In part two of the our Parallel QUery Decoder series, we'll dig deep into the mechanics and purpose of the GIL.
 
 
