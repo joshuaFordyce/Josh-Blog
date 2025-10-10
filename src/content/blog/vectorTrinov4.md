@@ -1,7 +1,14 @@
-
+---
+title: 'Building a Robust Batch System: State Management and Error handling '
+description: 'We explore global state, module imports and error handling'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 Building a Robust Batch System: State Management and Error Handling
 
-This is the fourth article in this series and it focuses on analyzing the design decisions related to global state, modulei mports and error handling. This focuses on making the batch process reliable
+This is the fourth article in this series and it focuses on analyzing the design decisions related to global state, module imports and error handling. This focuses on making the batch process reliable
 
 
 GlobalState: The Efficiency/Robustness Trade-off
