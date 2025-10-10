@@ -1,3 +1,11 @@
+---
+title: 'Data Warehouses: Intro to Partitioning '
+description: 'In this article, we explored the concept of Partitioning in Data Warehouses'
+pubDate: 'April 28, 2025'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
 The Python Performance Trap: Bypassing the GIL for High-Throughput Data Clients
 
 Recently, I've been focus on contributing performant Python code to open source. My latest contributions were for the Trino Python client. I picked this
