@@ -1,52 +1,19 @@
 
-The FastAPI Gateway to Retrieval-Augmented Generation
+Part1: The Asynchronous SQL Gateway: Concurrency and the API Contract
 
-This is part 1 of a series analyzing the Semantrino API microservice. 
+Async vs. Blocking: The MLOps Rationale
 
-The Core Function: Decoupling the Service Layer
+When I started designing the Semantrino API I wanted to maintain high throughput for an I/O-bound service. To do this, I built it using the FastAPI framework which is asynchrnous. So when our service makes external calls the time is spent in network latency. This is perfect when fetching a large query plan from Trino or waiting ror the LLM API response. If we used syncrhnous code, Pythons GIL to stall the entire process which would cripple our application. By using async and await, we were able to relase the GIL. THis allowed us to use a single event loop to potentially manage thousands of concurrent requests efficiently. 
 
-The separation observed here is the Layered Architecture fundamental to MLOps:
+API Contract(Pydantic Validation)
 
-- Presentation/Service Layer (FastAPI Endpoint)
-  - Handles external communication(HTTP protocol, JSON serialization, security)
-- Business/Application Logic Layer(RAGService)
-  - COntains the core logic(retrieval, prompt construction, generation
+The API contract is the non-negotiable definition of the system's inpyuts and outputs. To establish this contract, we choose Pydantic. We defined a QueryRequest Pydantic model that receeives the user's input and then FastAPI validates this request at the network edge. This ensures that any malformed request is immediately rejected which helps us prevent our application from wasting resources on invalid inputs.
 
-The endpoints job is purely to be the service gateway. It uses Dependency Injection to inject the RAG business logic into the handler function.
-This is helpful for three core reasons.
+Architectural Philosophy:
 
-- Testability
-  - The core RAGService can be unit-tested in isolation without starting the FASTAPI server
-- Scalability
-  - If the service scales horizonatally across multiple k8 pods, the service layer handles the concurrent requests, while the RAGService instance handles tha actual computations efficiently
-- Resource Management
-  - The get_rag_service dependency function ensures that expensive resources are initalized correctly and shared efficiently across all incoming requests
+The endpoint handler acts purely as a translator. The FastAPI route's job is simpply to receive HTTP< validate the Pydantic schema and then delegate the relevant complex work to internal service classes. This ensures that we continue to decouple the business logic from the api framework.
 
-FastPI for I/O and Concurrency: the Async Advantage
 
-The use of async def is a critical optimization for managing the inherent latency of RAG workloads
-- Calling a RAG pipeline is heavily I/O-bound because it involves waiting for multiple external services over a network:
-  - Vector Store Lookup
-    - Waiting for ChromaDB to return the top-K chunks
-  - LLM Generation
-    - waiting for the OpenAI/Anthropic API to generate the final response
-- Because we used the async def, the server can pause the execution of that specific request while it waits for the network response. The server doesn't sit idel. Instead, it
-switches context ro processs another client request, dratically increasing the number of concurrent connections the single server process can handle
-- Pydantic models provide the Data Contract for the API
-  - Input Validation:
-    - Before the handler executes, FastAPI uses Pydantic to ensure the incoming JSON payload is strictly compliant. For instance, if top_k is expected as an integer but a string is received, the request is rejected immediately with a clean 422 unproessable entity error
-      This is a key MLOPS feature to prevent garbage-in-garbage-out and protect the costly downstream AI logic from invalid calls
-  - Response Contract
-    - The response_model=RAGRespone decorator gaurantees that the server always return data in a predictable shape, which is essential for client-side integration and seamless consumption by downstream microservices
+Conclusion:
 
-LLMOPS COntext:
-
-In LLMOps, the primary business goals for any serving endpoint are directly tied to these technical choices
-
-- Latency Optimization:
-  - The asynchrnous model directly targets perceived latency. By maximizing concurrency, the server ensures that a sudden spike in user queries doesn't force subsequent users into aqueue, resulting in a consitent, low-latency experience for each client
-
-- Cost Management:
-  - RAG pipelines are expensive due to vector lookups and LLM token consumption. Pydantic validation acts as a efficient, low-cost filter.
-    Invalid requests are rejected by FASTAPI's pure python validation layer instead of being passed to the RAG service, which may waste milliseconds on vector lookups or several cents on a failed LLM call
-    
+In this first part of the series on the semantrino API, We've went over establsighing the foundationfor an intelligent data agent. We've focused on embracing the asynchronous model of Python and FAstapi, using the Pydantic QueryRequest Model as our primary API contract and security guardrail and ensuring that we decouple the service layer from the business logic. In part 2, we'll dive deed into how we used the LangChain framework , the Singleton Trade-Off and the context window.
