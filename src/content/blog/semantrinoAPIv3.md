@@ -1,9 +1,9 @@
 ---
 title: 'Validation Gate: Guardrails, Auditing, and Production Stability'
 description: 'In this article, we explored adding validation to llm powered tools'
-pubDate: 'April 28, 2025'
+pubDate: 'December 1, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-tranmautritam-326501.jpg'
 tags: ['ML']
 ---
 The Validation Gate: Guardrails, Auditing, and Production Stability
