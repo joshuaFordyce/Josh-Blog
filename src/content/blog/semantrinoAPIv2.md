@@ -1,9 +1,9 @@
 ---
 title: 'RAG Core: Orchestration, Resilience, and Resource Management'
 description: 'In this article, we explored the core of our RAG API'
-pubDate: 'April 28, 2025'
+pubDate: 'November 24, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-pixabay-355952.jpg'
 tags: ['ML']
 ---
 The RAG Core: Orchestration, Resilience, and Resource Management
