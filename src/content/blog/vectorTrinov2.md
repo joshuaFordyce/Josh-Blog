@@ -1,9 +1,9 @@
 ---
 title: 'Architecture of Decoupling: Trino, ChromaDB, and Data Abstraction '
 description: 'In this article, we explored how classes abstract data retrieval'
-pubDate: 'April 28, 2025'
+pubDate: 'October 20, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-monoar-rahman-22660-109371.jpg'
 tags: ['ML']
 ---
 Architecture of Decoupling: Trino, ChromaDB, and Data Abstraction
