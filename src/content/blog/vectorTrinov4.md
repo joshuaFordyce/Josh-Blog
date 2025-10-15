@@ -1,9 +1,9 @@
 ---
 title: 'Building a Robust Batch System: State Management and Error handling '
 description: 'We explore global state, module imports and error handling'
-pubDate: 'April 28, 2025'
+pubDate: 'November 3rd, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-picjumbo-com-55570-196644.jpg'
 tags: ['ML']
 ---
 Building a Robust Batch System: State Management and Error Handling
