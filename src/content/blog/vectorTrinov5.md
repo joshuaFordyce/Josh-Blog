@@ -1,9 +1,9 @@
 ---
 title: 'MLOps Future-Proofing and Pipeline Extensions '
 description: 'In this article, we discuss how the current structure prepares the service for advanced mlops features and necessary future extensions'
-pubDate: 'November 28, 2025'
+pubDate: 'November 10, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-picjumbo-com-55570-196645.jpg'
 tags: ['ML']
 ---
 MLOps Future-Proofing and PipelineExtensions
