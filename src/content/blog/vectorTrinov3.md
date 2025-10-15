@@ -1,9 +1,9 @@
 ---
 title: 'LLMOps Transform: Chunking Metadata, and Vector Generation '
 description: 'In this article, we explored the data transformation'
-pubDate: 'April 28, 2025'
+pubDate: 'October 27, 2025'
 category: 'Data Engineering and Data Infrastructure'
-heroImage: '../../assets/images/2 - FA6Yb.jpg'
+heroImage: '../../assets/images/pexels-nietjuhart-934062.jpg'
 tags: ['ML']
 ---
 The LLMOps Transform: Chunking Metadata, and Vector Generation
