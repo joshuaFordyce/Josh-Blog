@@ -1,0 +1,120 @@
+---
+title: 'Gateway API for Trino Part 2 '
+description: 'In this article, we explored configuring a gateway api for Trino'
+pubDate: 'Jan 13, 2026'
+category: 'Data Engineering and Data Infrastructure'
+heroImage: '../../assets/images/2 - FA6Yb.jpg'
+tags: ['ML']
+---
+
+Introduction
+
+The goal of today’s article will be providing a step by step guide to move beyond utilizing the Ingress Object for Trino workloads on Kubernetes. We’ll be wiring up a versatile,  high performance Gateway API Object to make routing external traffic to our trino cluster a breeze. In our last article in this series, we went over several key reasons why moving to the Gateway API from Ingress makes sense for Kubernetes Based Trino workloads. We’ll be working with a local Kind cluster, Gateway API CRD’s from Istio and a simple trino setup consisting of one coordinator and two workers.
+
+Introducing the GatewayClass & Gateway
+
+Let's talk about the GatewayClass first. This is the driver of the network. It tells Kubernetes what type of controller you're using. For example the yaml snippet below uses Istio for this. The most important field is the spec.controllerName. The second most important field is the ParametersRef where you can point to a ConfigMap or a custom CRD that contains vendor-specific settings.
+
+Example
+
+````
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: trino-gateway-class
+spec:
+  controllerName: istio.io/gateway-controller 
+  description: "GatewayClass for high-concurrency Trino data traffic"
+````
+
+
+
+Now let's talk about the controller. The Controller is a living process running in the cluster that watches the Kubernetes API for any new Gateway or Route resources that reference its GatewayClass. It translates  the high level kubernetes YAML into low-level configuration. So for our example, since we’re using Istio, the controller translates our HTTPRoute into Envoy xDS config. It talks to the Cloud Provider API, if there is one, to provision the actual Load Balancer. It then writes back to the Gateway resource’s status block to tell us if the overall configuration was successful
+
+```
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: trino-gateway
+  namespace: trino-namespace
+spec:
+  gatewayClassName: trino-gateway-class
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+    # Security: Only allow Routes from the same namespace to attach
+    allowedRoutes:
+      namespaces:
+        from: Same
+  - name: https
+    protocol: HTTPS
+    port: 443
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - name: trino-coordinator-certs
+    allowedRoutes:
+      namespaces:
+        from: Same
+
+```
+
+
+
+Introducing the HttpRoute
+
+The HTTPRoute is where the actual routing logic gets separated from the infra. This is the brain of the operation nad it doesn’t care about the TLS certs or Load Balancer IPs but instead just worries about which Trino cluster and for how long. Since we’re configuring this for a Trino Project, the HTTPRoute has three roles. It connects itself to the trino-gateway, ensures traffic to our backend Trino service is isolated from the other services you have running on the cluster and configuring. In the example below i want to call attention to the backendRefs in the Spec. This parameter allows us to pass multiple backends to enable native weighted routing.
+
+```
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: trino-coordinator-route
+  namespace: trino-namespace
+spec:
+  parentRefs:
+  - name: trino-gateway # Attaching to our Step 1 Gateway
+  hostnames:
+  - "trino.example.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: trino-v1-stable # Pointing to the Trino Service
+      port: 8080
+      weight: 100
+    # THE TRINO SECRET SAUCE: Standardized Timeouts
+    # This prevents the '504 Gateway Timeout' during long-running SQL joins
+    timeouts:
+      request: 300s         # Total time for a query to return
+      backendRequest: 280s  # Time allowed for the Coordinator to respond
+```
+backendRefs for Canary configuration Snippet
+
+```
+backendRefs:
+    - name: trino-v1-stable
+      port: 8080
+      weight: 90
+    - name: trino-v2-canary # The new version we are benchmarking
+      port: 8080
+      weight: 10
+```
+
+Let's also talk about the requestTimeout. The requestTimeout allows us to make sure that the heavy federated queries that we run on our Trino Workload aren’t impacted due to quick default timeouts by allowing us to easily customize it.
+
+Trino’s Traffic Life Cycle for 
+
+Let’s start with a simple query. When a user runs SELECT * FROM hive.table, the request follows a multi-step journey where the Gateway API’s decoupling provides significantly more stability than the ingress.  First the user’s request is sent to trino.example.com and this lands on the Cloud Load Balancer( in our case Kind provides a load balancer) the Gateway Controller receives the packet, then matches the packet against the rules we set in the HTTPRoute rules. In addition to looking for the respective path, it checks weights and health status. This traffic is forwarded to the Trino Coordinator Pod and because we configured custom timeouts in the HTTPRoute, the Istio Proxy knows not quickly sever the connection even if the cost based optimizer running on the Coordinator takes 300 seconds to create the query plan
+
+What happens to the traffic the Gateway doesn’t touch
+
+THe Gateway API handles Front door traffic whereas the Trino Shuffle is a completely different story. When workers shuffle data across each worker they don’t go back out through the gateway they instead will communicate directly via Pod IPs over the CNI layer(Cilium in our case). 
+
+Conclusion
+
+
+The Gateway API is great for a high stakes data platform like Trino but when making a transition like this we always want to use data driven decision making. For the next phase of this project, we put the Ingress and the Gateway API to a head-to-head stress test. I’ll be walking through how I built a custom benchmarking suite with python performance scripts and shell-based metrics collections. 
