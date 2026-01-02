@@ -17,7 +17,7 @@ Let's talk about the GatewayClass first. This is the driver of the network. It t
 
 Example
 
-````
+```
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
 metadata:
@@ -25,7 +25,7 @@ metadata:
 spec:
   controllerName: istio.io/gateway-controller 
   description: "GatewayClass for high-concurrency Trino data traffic"
-````
+```
 
 
 
