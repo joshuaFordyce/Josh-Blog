@@ -15,7 +15,20 @@ Data engineers and analysts spend a ton of their time just trying to figure out 
 
 Logic Breakdown
 
+First lets import our modules and craft our query
+
+````
+import trino
+from trino.dbapi import connect
+import json
+query = "SELECT node_id,http_uri, state FROM system.runtime.nodes"
+````
+
+
+
 Configuring the Connnection
+
+
 
 ````
 def configureConnection():
