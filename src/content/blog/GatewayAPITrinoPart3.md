@@ -485,13 +485,6 @@ if __name__ == "__main__":
 
 
 
-Buffer Bottleneck
-
-This test focuses on checking the Proxy Overhead and Memory Management. WHen Trino streams a 5GB result set, the data has to pass through the Proxy’s memory. Nginx defaults to small buffer sizes which is a problem because if a Trino response is larger than the buffer, NGINX might push the response to disk or truncate the headers. This can add massive I/O latency. Gateway APi implementations are designed for service to service sidecar traffic and have more tunable memory-streaming defaults. We’ll be looking to analyze the Time to First Byte(How long until the first row arrives), Time to Last Byte (How long until the 1-millionth row is finished) and the Effective MB/s. As we increase the result set from 10k to 1m rows we’ll focus on the degradation slope to figure out if the latency increases linearly or if it hits a wall where performance plummets. The reason for this is that the wall is usually where the proxy ran out of RAM and shifts to using the disk
-
-Concurrent Client Latency Test
-
-This test focuses on Request Multiplexing. One of the key issues with Legacy Proxies is that they tend to have inefficient connection pooling. If the heavy query occupies all available worker threads or connections in the proxy’s pool. Here we want to focus on P99 latency of light queries so we can examine the stutter. The focus is really on doing our lighter queries time out because they are stuck behind the large ones.
 
 
 
