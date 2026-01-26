@@ -49,8 +49,9 @@ Most CNIs (like Calico) use an Overlay Network, which adds a second layer of enc
 CFS Tax
 While encapsulation is a network tax, the CFS Tax (Completely Fair Scheduler) is a timing tax. This is the Linux Kernel’s implementation for enforcing CPU limits.
 If you set a limit of 2.0 CPUs, Kubernetes gives your container 200ms of CPU time for every 100ms window. Because Trino is highly concurrent, a worker might have 10 active threads. If each thread works for 20ms, you consume your entire 200ms quota in just 20ms of real time. For the remaining 80ms of that window, the Linux Kernel stops the container, throttling the worker until the next cycle begins. This happens even if the physical host has plenty of idle CPU, creating those P99 spikes we’re trying to avoid.
-We’ve now pulled back the curtain on the latency of the Kubernetes layer. Understanding these latency traps is important to our experiment pitting the Gateway API vs Ingress object. Now that we’ve explored the mechanics of how the latency in how the Cluster talks and thinks, we’ll examine the hard data. In  the next article, we will examine the results of the experiment we set up in the previous installment to see which architecture actually survives the P99 stress test.. Thanks for reading and I’ll see you in the next article!
 
 Conclusion
+We’ve now pulled back the curtain on the latency of the Kubernetes layer. Understanding these latency traps is important to our experiment pitting the Gateway API vs Ingress object. Now that we’ve explored the mechanics of how the latency in how the Cluster talks and thinks, we’ll examine the hard data. In  the next article, we will examine the results of the experiment we set up in the previous installment to see which architecture actually survives the P99 stress test.. Thanks for reading and I’ll see you in the next article!
+
 
 
