@@ -1,3 +1,13 @@
+---
+title: 'Turning the Faucet Off: Preventing Runaway Cloud Compute Spend in MCP-Driven Data Lakes'
+description: 'A guide on managing cloud Compute spend in Enterprise level MCP-Driven Data aLakes'
+pubDate: 'June 12 2026'
+category: 'DevOps and Cloud Infrastructure'
+heroImage: '../../assets/images/bg.jpg'
+tags: ['ML']
+---d
+
+
 Turning the Faucet Off: Preventing Runaway Cloud Compute Spend in MCP-Driven Data Lakes
 
 Picture the scene. Your team has deployed an AI agent using the Model Context Protocol (MCP). By standardizing the interface between the LLM and your enterprise data lake, you avoid complex, custom API integration work. Your business analyst opens the chat interface and asks a perfectly reasonable question:
