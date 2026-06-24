@@ -1,7 +1,7 @@
 ---
 title: 'Turning the Faucet Off: Preventing Runaway Cloud Compute Spend in MCP-Driven Data Lakes'
 description: 'A guide on managing cloud Compute spend in Enterprise level MCP-Driven Data aLakes'
-pubDate: 'June 12 2026'
+pubDate: 'June 12, 2026'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/bg.jpg'
 tags: ['ML']
