@@ -1,7 +1,7 @@
 ---
 title: 'AI Native System CBPM'
 description: 'An Introduction to Cloud Backup Posture for AI Systems'
-pubDate: 'June 12 2026'
+pubDate: 'June 12, 2026'
 category: 'DevOps and Cloud Infrastructure'
 heroImage: '../../assets/images/bg.jpg'
 tags: ['ML']
